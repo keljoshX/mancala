@@ -28,6 +28,9 @@ import { MancalaBoardModelsQuery, MancalaPlayerNames } from "@/lib/constants";
 import clsx from "clsx";
 import { Helmet } from "react-helmet-async";
 import { lookupMissingNames } from "@/lib/utils";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { PlusIcon } from "@heroicons/react/24/solid";
+import boardImage from "../assets/board.png";
 // import audio from "../music/audio_1.mp4";
 
 export default function Lobby() {
@@ -328,7 +331,7 @@ export default function Lobby() {
                 className="flex flex-col items-center justify-center bg-transparent"
               >
                 <div className="w-[700px] bg-[#0F1116] border-2 border-[#272A32] rounded-2xl p-8">
-                  <div className="w-full h-[350px]">
+                  <div className="w-full h-[500px]">
                     <div className="flex flex-row items-center justify-end w-full">
                       <Button
                         className="p-0 bg-transparent rounded-full"
@@ -383,7 +386,7 @@ export default function Lobby() {
                       <div className="flex flex-col items-center justify-center w-full h-full">
                         <div className="flex flex-col items-center justify-center space-y-5 -mt-20">
                           <div className="space-y-1.5 text-center">
-                            <h3 className="text-[#BDC2CC] text-2xl font-bold">
+                            <h3 className="text-white text-2xl font-bold">
                               Create Game
                             </h3>
                             <p className="font-bold text-lg text-[#4F5666]">
@@ -440,7 +443,7 @@ export default function Lobby() {
                           {type === "private" ? (
                             <div className="space-y-5">
                               <input
-                                className="p-2.5 w-72 rounded-xl border border-[#1D212B] bg-transparent outline-none placeholder:text-[#4F5666] placeholder:font-medium text-[#4F5666] font-medium"
+                                className="p-2.5 w-72 rounded-xl border border-[#1D212B] bg-[#1D212B] outline-none placeholder:text-[#4F5666] placeholder:font-medium text-[#4F5666] font-medium"
                                 placeholder="0x..."
                                 onChange={(e) => setPlayer2(e.target.value)}
                               />
@@ -460,6 +463,39 @@ export default function Lobby() {
                               </p>
                             </div>
                           )}
+                          <div className="flex flex-col items-center w-full space-y-1">
+                            <div className="space-y-1 text-center">
+                              <h3 className="text-white text-base font-bold">
+                                Board
+                              </h3>
+                              <p className="font-bold text-sm text-[#4F5666]">
+                                Get started with the Mancala Game
+                              </p>
+                            </div>
+                            <div className="flex flex-col space-y-1.5">
+                              <div className="w-72 rounded-xl bg-transparent">
+                                <Select>
+                                  <SelectTrigger className="w-full">
+                                    <SelectValue placeholder="Default Board" />
+                                  </SelectTrigger>
+                                  <SelectContent>
+                                    <SelectItem value="default">Default Board</SelectItem>
+                                    <SelectItem value="board1">Default Board</SelectItem>
+                                    <SelectItem value="board2">Starknet Board</SelectItem>
+                                  </SelectContent>
+                                </Select>
+                              </div>
+                              <div className="flex flex-row justify-end text-[#F58229] space-x-1.5">
+                                <PlusIcon className="h-4 w-4"/>
+                                <h3 className="font-bold text-xs">
+                                  Buy more board
+                                </h3>
+                              </div>
+                              <div className=" flex flex-row justify-center">
+                                <img src={boardImage} alt="Board" className="w-40 h-32"/>
+                              </div>
+                            </div>
+                          </div>
                           {gameId === null && creating === false ? (
                             <Button
                               className="bg-[#F58229] hover:bg-[#F58229] font-medium hover:cursor-pointer rounded-3xl"
