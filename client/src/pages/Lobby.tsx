@@ -385,7 +385,7 @@ export default function Lobby() {
                     ) : (
                       <div className="flex flex-col items-center justify-center w-full h-full">
                         <div className="flex flex-col items-center justify-center space-y-5 -mt-20">
-                          <div className="space-y-1.5 text-center">
+                          <div className="space-y-1 text-center">
                             <h3 className="text-white text-2xl font-bold">
                               Create Game
                             </h3>
@@ -393,7 +393,7 @@ export default function Lobby() {
                               Get started with the Mancala Game
                             </p>
                           </div>
-                          <div className="flex gap-20">
+                          <div className="flex gap-30">
                             <RadioGroup
                               defaultValue={type}
                               className="flex flex-row space-x-10"
@@ -441,9 +441,9 @@ export default function Lobby() {
                             </RadioGroup>
                           </div>
                           {type === "private" ? (
-                            <div className="space-y-5">
+                            <div className="space-y-1">
                               <input
-                                className="p-2.5 w-72 rounded-xl border border-[#1D212B] bg-[#1D212B] outline-none placeholder:text-[#4F5666] placeholder:font-medium text-[#4F5666] font-medium"
+                                className="p-2.5 w-72 rounded-xl bg-[#1D212B] outline-none placeholder:text-[#4F5666] placeholder:font-medium text-[#4F5666] font-medium"
                                 placeholder="0x..."
                                 onChange={(e) => setPlayer2(e.target.value)}
                               />
@@ -464,22 +464,21 @@ export default function Lobby() {
                             </div>
                           )}
                           <div className="flex flex-col items-center w-full space-y-1">
-                            <div className="space-y-1 text-center">
-                              <h3 className="text-white text-base font-bold">
-                                Board
-                              </h3>
-                              <p className="font-bold text-sm text-[#4F5666]">
-                                Get started with the Mancala Game
-                              </p>
-                            </div>
+                              <div className="text-center">
+                                <h3 className="text-[#FFFFFF] text-base font-bold">
+                                  Board
+                                </h3>
+                                <p className="font-bold text-sm text-[#4F5666]">
+                                  Get started with the Mancala Game
+                                </p>
+                              </div>
                             <div className="flex flex-col space-y-1.5">
-                              <div className="w-72 rounded-xl bg-transparent">
-                                <Select>
+                              <div className="w-72 rounded-xl bg-[#1D212B]">
+                                <Select onOpenChange={()=>setOpen(open)}>
                                   <SelectTrigger className="w-full">
                                     <SelectValue placeholder="Default Board" />
                                   </SelectTrigger>
-                                  <SelectContent>
-                                    <SelectItem value="default">Default Board</SelectItem>
+                                  <SelectContent className="z-[10000]">
                                     <SelectItem value="board1">Default Board</SelectItem>
                                     <SelectItem value="board2">Starknet Board</SelectItem>
                                   </SelectContent>
