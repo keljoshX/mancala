@@ -10,12 +10,20 @@ export default function Home() {
       <div className="bg-[url('./assets/home-box.png')] bg-cover bg-center bg-no-repeat w-[874px] h-[486px] flex flex-col items-center justify-center space-y-20">
         <img src={logo} alt="logo" className="w-56 h-16" />
         <div className="flex flex-col space-y-5 text-center">
-          <Link to="/lobby">
-            <button className="bg-[#1A1D25] text-[#F58229] py-2.5 px-7 rounded-full flex flex-row items-center justify-center space-x-1">
-              <Bubble />
-              <p>Go to lobby</p>
-            </button>
-          </Link>
+          <div className="flex flex-row space-x-5">
+            <Link to="/lobby">
+              <button className="bg-[#F58229] text-[#1A1D25] py-2.5 px-7 rounded-full flex flex-row items-center justify-center space-x-1">
+                <Bubble color="#1A1D25" />
+                <p>Play for real</p>
+              </button>
+            </Link>
+            <Link to="/lobby">
+              <button className="bg-[#1A1D25] text-[#F58229] py-2.5 px-7 rounded-full flex flex-row items-center justify-center space-x-1">
+                <Bubble />
+                <p>Play for free</p>
+              </button>
+            </Link>
+          </div>  
           <Link
             to="/"
             className="flex flex-row items-center justify-center space-x-1"
